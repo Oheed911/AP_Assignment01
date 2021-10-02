@@ -71,6 +71,31 @@ public class LinkeListImplementationTest {
 		assertEquals(12,list.topFront());
 	}
 	@Test
+	public void CheckingPushBack()
+	{
+		LinkedListImplementation list=new LinkedListImplementation();
+		ArrayList<Integer> check = new ArrayList<Integer>();
+		int i=0;
+		while(i!=5)
+		{
+			list.pushBack(i*3);
+			check.add(i*3);
+			i++;
+		}
+		
+		LinkedListImplementation tempnode=new LinkedListImplementation();
+		tempnode=list.headPointer;
+		int ii=0;
+		while(ii!=5)
+		{
+			System.out.println(check.get(ii).intValue()+" "+tempnode.data);
+			assertEquals(check.get(ii).intValue(), tempnode.data);
+			ii++;
+			tempnode=tempnode.nextPointer;
+			
+		}
+	}
+	@Test
 	public void checkSize() throws Exception
 	{
 		LinkedListImplementation list=new LinkedListImplementation();
