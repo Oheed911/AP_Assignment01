@@ -2,14 +2,17 @@ package package1;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
-import java.util.Queue;
-import java.util.*;
-public class QueueWithArrayTest {
+
+public class QueueImplementationTest {
 
 	@Test
-	public void CheckEnqueue() {
-		QueuewithArray qArray=new QueuewithArray(10);
+	public void CheckEnqueue() throws Exception
+	{
+		QueueImplementation qArray=new QueueImplementation(10);
 		List<Integer> queueCheck=new ArrayList<Integer>();
 		for(int i=0;i<10;i++)
 		{
@@ -24,9 +27,10 @@ public class QueueWithArrayTest {
 		}
 	}
 	@Test
-	public void CheckDequeue() 
+	public void CheckDequeue() throws Exception
+	
 	{
-		QueuewithArray qArray=new QueuewithArray(10);
+		QueueImplementation qArray=new QueueImplementation(10);
 		List<Integer> queueCheck=new ArrayList<Integer>();
 		for(int i=0;i<10;i++)
 		{
@@ -41,11 +45,10 @@ public class QueueWithArrayTest {
 		int ii=qArray.removePointer;
 		assertEquals(3,qArray.array[ii]);
 	}
-	//function fails to input value at index 0 after filling up an array
 	@Test
-	public void CheckEnqueue2Fail() 
+	public void CheckEnqueue2Fail() throws Exception
 	{
-		QueuewithArray qArray=new QueuewithArray(5);
+		QueueImplementation qArray=new QueueImplementation(5);
 		List<Integer> queueCheck=new ArrayList<Integer>();
 		for(int i=0;i<5;i++)
 		{
@@ -67,5 +70,22 @@ public class QueueWithArrayTest {
 			ii++;
 		}
 	}
+	@Test
+	public void CheckEmpty() throws Exception
+	{
+		QueueImplementation qArray=new QueueImplementation(10);
+		assertTrue(qArray.empty());
+		qArray.enqueue(6);
+		assertFalse(qArray.empty());
+	}
+	@Test
+	public void CheckSize() throws Exception
+	{
+		QueueImplementation qArray=new QueueImplementation(10);
+		for(int i=0;i<10;i++)
+			qArray.enqueue(3*i);
+		assertEquals(10,qArray.size());
+	}
+	
 
 }

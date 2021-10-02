@@ -49,13 +49,34 @@ public class LinkeListImplementationTest {
 		LinkedListImplementation tempnode=new LinkedListImplementation();
 		tempnode=list.headPointer;
 		int ii=0;
-		while(tempnode!=null)
+		while(ii!=5)
 		{
+			System.out.println(ii);
 			assertEquals(check.get(ii).intValue(), tempnode.data);
 			ii++;
 			tempnode=tempnode.nextPointer;
-			
 		}
+	}
+	@Test
+	public void checkTopFront() throws Exception
+	{
+		ArrayList<Integer> check = new ArrayList<Integer>();
+		LinkedListImplementation list=new LinkedListImplementation();
+		
+		for(int i=0;i<5;i++)
+		{
+			list.pushFront(i*3);
+		}
+		LinkedListImplementation tempnode=new LinkedListImplementation();
+		assertEquals(12,list.topFront());
+	}
+	@Test
+	public void checkSize() throws Exception
+	{
+		LinkedListImplementation list=new LinkedListImplementation();
+		for(int i=0;i<5;i++)
+		list.pushFront(i);
+		assertEquals(5,list.size());
 	}
 	
 	
