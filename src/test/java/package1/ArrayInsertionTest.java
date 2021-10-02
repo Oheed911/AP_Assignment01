@@ -9,7 +9,8 @@ public class ArrayInsertionTest {
 
 	//Not Filling full array
 	@Test
-	public void testArrayInsertion() {
+	public void testArrayInsertion()
+	{
 		ArrayInsertion arr=new ArrayInsertion();
 		int[] ArrayTosend=new int[5];
 		int[] expectarr=new int[5];
