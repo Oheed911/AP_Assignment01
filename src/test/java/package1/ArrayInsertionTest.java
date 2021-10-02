@@ -28,14 +28,14 @@ public class ArrayInsertionTest {
 	@Test
 	public void testArrayFullInsertion() {
 		ArrayInsertion arr=new ArrayInsertion();
-		int[] ArrayTosend=new int[5];
-		int[] expectarr=new int[5];
-		for(int i=0;i<5;i++)
+		int[] ArrayTosend=new int[10];
+		int[] expectarr=new int[10];
+		for(int i=0;i<10;i++)
 		{
 			arr.insert(ArrayTosend, i*3, i);
 			expectarr[i]=i*3;
 		}
-		for(int i=0;i<5;i++)
+		for(int i=0;i<10;i++)
 		{
 			Assert.assertArrayEquals(expectarr, ArrayTosend);
 		}

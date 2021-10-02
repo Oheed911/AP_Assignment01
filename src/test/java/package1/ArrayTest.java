@@ -124,7 +124,17 @@ public class ArrayTest {
 		}
 		for(int i=0;i<5;i++)
 			Assert.assertTrue(arr.binarySearch(i*3, 0, 5));
-
+	}
+	@Test
+	public void CheckbinarySearchFail()
+	{
+		int j=0;
+		for(int i=4;i>=0;i--)
+		{
+			arr.insert(i*3, j);
+			j++;
+		}
+		Assert.assertTrue(arr.binarySearch(12, 0, 5));
 	}
 	
 }
