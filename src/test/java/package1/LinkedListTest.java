@@ -134,17 +134,7 @@ public class LinkedListTest {
 			ii++;
 			tempnode=tempnode.next;
 		}
-		//again poping 
-		check2.add(6);
-		check2.add(9);
-		tempnode=list.head;
-		ii=0;
-		while(tempnode!=null)
-		{
-			assertEquals(check2.get(ii).intValue(), tempnode.key);
-			ii++;
-			tempnode=tempnode.next;
-		}
+
 	}
 	
 }
