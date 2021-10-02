@@ -15,11 +15,12 @@ public class LinkeListImplementationTest {
 		ArrayList<Integer> check = new ArrayList<Integer>();
 		LinkedListImplementation list=new LinkedListImplementation();
 		
-		for(int i=0;i<5;i++)
+		for(int i=0;i<2;i++)
 		{
 			list.add(i*3);
 			check.add(i*3);
 		}
+		
 		LinkedListImplementation tempnode=new LinkedListImplementation();
 		tempnode=list.headPointer;
 		int ii=0;
@@ -37,21 +38,16 @@ public class LinkeListImplementationTest {
 		ArrayList<Integer> check = new ArrayList<Integer>();
 		LinkedListImplementation list=new LinkedListImplementation();
 		
-		for(int i=0;i<5;i++)
-		{
-			list.pushFront(i*3);
-		}
-		for(int i=4;i>=0;i--)
-		{
-			check.add(i*3);
-		}
-		
+
+		list.pushFront(6);
+		check.add(6);
+		check.add(0);
+		check.add(3);
 		LinkedListImplementation tempnode=new LinkedListImplementation();
 		tempnode=list.headPointer;
 		int ii=0;
-		while(ii!=5)
+		while(ii!=3)
 		{
-			System.out.println(ii);
 			assertEquals(check.get(ii).intValue(), tempnode.data);
 			ii++;
 			tempnode=tempnode.nextPointer;
@@ -62,13 +58,33 @@ public class LinkeListImplementationTest {
 	{
 		ArrayList<Integer> check = new ArrayList<Integer>();
 		LinkedListImplementation list=new LinkedListImplementation();
-		
-		for(int i=0;i<5;i++)
-		{
-			list.pushFront(i*3);
-		}
+		list.pushFront(12);
 		LinkedListImplementation tempnode=new LinkedListImplementation();
 		assertEquals(12,list.topFront());
+	}
+	@Test
+	public void CheckingPopFront() throws Exception
+	{
+		ArrayList<Integer> check = new ArrayList<Integer>();
+		LinkedListImplementation list=new LinkedListImplementation();
+		list.pushFront(10);
+		list.pushFront(8);
+		//8 is popped out
+		list.popFront();
+		check.add(10);
+		check.add(6);
+		check.add(0);
+		check.add(3);
+		LinkedListImplementation tempnode=new LinkedListImplementation();
+		tempnode=list.headPointer;
+		int i=0;
+		while(i!=4)
+		{
+			assertEquals(check.get(i).intValue(),tempnode.data);
+			tempnode=tempnode.nextPointer;
+			i++;
+		}
+		list.display();
 	}
 	@Test
 	public void CheckingPushBack()
@@ -76,17 +92,21 @@ public class LinkeListImplementationTest {
 		LinkedListImplementation list=new LinkedListImplementation();
 		ArrayList<Integer> check = new ArrayList<Integer>();
 		int i=0;
-		while(i!=5)
+		while(i!=2)
 		{
 			list.pushBack(i*3);
-			check.add(i*3);
 			i++;
 		}
-		
+		check.add(10);
+		check.add(6);
+		check.add(0);
+		check.add(3);
+		check.add(0);
+		check.add(3);
 		LinkedListImplementation tempnode=new LinkedListImplementation();
 		tempnode=list.headPointer;
 		int ii=0;
-		while(ii!=5)
+		while(ii!=6)
 		{
 			System.out.println(check.get(ii).intValue()+" "+tempnode.data);
 			assertEquals(check.get(ii).intValue(), tempnode.data);
@@ -96,12 +116,25 @@ public class LinkeListImplementationTest {
 		}
 	}
 	@Test
+	public void CheckTopBack() throws Exception
+	{
+		LinkedListImplementation list=new LinkedListImplementation();
+		assertEquals(3,list.topBack());
+		
+	}
+	@Test
 	public void checkSize() throws Exception
 	{
 		LinkedListImplementation list=new LinkedListImplementation();
-		for(int i=0;i<5;i++)
-		list.pushFront(i);
-		assertEquals(5,list.size());
+		int c=0;
+		LinkedListImplementation tempnode=new LinkedListImplementation();
+		tempnode=list.headPointer;
+		while(tempnode!=null)
+		{
+			c++;
+			tempnode=tempnode.nextPointer;
+		}
+		assertEquals(c,list.size());
 	}
 	
 	
